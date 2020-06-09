@@ -1,0 +1,29 @@
+{
+  "name": "facilethings-linux",
+  "version": "1.0.0",
+  "description": "An unofficial FacileThings electron wrapper",
+  "main": " ",
+  "scripts": {
+    "build": "npm run build:linux && npm run build:windows && npm run build:mac",
+    "build:linux": "npx nativefier https://app.facilethings.com/engage --arch x64 --tray --name FacileThings --icon icon.png --platform linux build",
+    "build:windows": "npx nativefier https://app.facilethings.com/engage --arch x64 --tray --name FacileThings --icon icon.png --platform windows build",
+    "build:mac": "npx nativefier https://app.facilethings.com/engage --arch x64 --tray --name FacileThings --icon icon.png --platform osx build",
+    "clean": "rm -rf build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/lukas-mertens/facilethings-linux.git"
+  },
+  "keywords": [
+    "electron"
+  ],
+  "author": "Lukas Mertens",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/lukas-mertens/facilethings-linux/issues"
+  },
+  "homepage": "https://gitlab.com/lukas-mertens/facilethings-linux#readme",
+  "dependencies": {
+    "nativefier": "^8.0.7"
+  }
+}
