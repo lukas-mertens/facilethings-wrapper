@@ -7,6 +7,30 @@ build:
     - tar -zcvf build/FacileThings-linux-x64.tar.gz build/FacileThings-linux-x64
     - tar -zcvf build/FacileThings-win32-x64.tar.gz build/FacileThings-win32-x64
     - tar -zcvf build/FacileThings-darwin-x64.tar.gz build/FacileThings-darwin-x64
+    - cd build
+    - mv *-linux-x64/ appdir
+    - cd appdir/
+    - mkdir -p usr/bin ; mv * usr/bin/ || true
+    - mkdir -p usr/share/applications/
+    - |
+      cat > usr/share/applications/facilethings.desktop <<EOF
+      [Desktop Entry]
+      Type=Application
+      Name=FacileThings
+      Comment=FacileThings
+      Icon=facilethings
+      Exec=facilethings
+      Categories=Graphics;3DGraphics;
+      EOF
+    - mkdir -p usr/share/icons/hicolor/scalable/
+    - touch usr/share/icons/hicolor/scalable/facilethings.svg
+    - cd -
+    - export VERSION=$(git rev-parse --short HEAD) # linuxdeployqt uses this for naming the file
+    - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
+    - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
+    - ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -appimage
+    - find appdir -executable -type f -exec ldd {} \; | grep " => /usr" | cut -d " " -f 2-3 | sort | uniq
   artifacts:
     paths:
       - build/*.tar.gz
+      - "**/*.AppImage*"
