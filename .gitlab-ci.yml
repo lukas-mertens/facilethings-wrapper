@@ -1,4 +1,5 @@
 build:
+  image: node:latest
   stage: build
   script:
     - npm install
