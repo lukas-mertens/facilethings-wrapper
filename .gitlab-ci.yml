@@ -12,6 +12,9 @@ image: node:latest
       script:
         - npm install
         - npm run build
+        - tar -zcvf build/FacileThings-linux-x64.tar.gz build/FacileThings-linux-x64
+        - tar -zcvf build/FacileThings-win32-x64.tar.gz build/FacileThings-win32-x64
+        - tar -zcvf build/FacileThings-darwin-x64.tar.gz build/FacileThings-darwin-x64
       artifacts:
         paths:
-          - build/
+          - build/*.tar.gz
