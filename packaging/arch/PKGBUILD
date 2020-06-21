@@ -1,12 +1,12 @@
 pkgname=facilethings
-pkgver=1.0
-pkgrel=1
+pkgver=1.1
+pkgrel=2
 pkgdesc="An unofficial wrapper for FacileThings"
 arch=('x86_64')
 url="https://gitlab.com/lukas-mertens/facilethings-linux"
 license=('MIT')
 source=("https://gitlab.com/lukas-mertens/facilethings-linux/-/jobs/604648512/artifacts/raw/build/FacileThings-linux-x64.tar.gz")
-md5sums=('428f97ad7f6ea5c7ebaa8bc5167b7c42')
+sha512sums=('08e930c99a091f9569002342339e62cf9298fc2927ffb58b8d1fbee8042b980792f592cdf770e1f00242f5749cd993cabe9096f45c4ee9cbd37d388add0053ea')
 
 package() {
 	      # copy binary files
@@ -14,5 +14,5 @@ package() {
         mv "$srcdir/build/FacileThings-linux-x64" "$pkgdir/opt/facilethings"
 				# symlink executable
 	      mkdir -p "$pkgdir/usr/bin"
-				ln -s "${pkgdir}/opt/facilethings/FacileThings" "${pkgdir}/usr/bin/facilethings"
+				ln -s "/opt/facilethings/FacileThings" "$pkgdir/usr/bin/facilethings"
 }
