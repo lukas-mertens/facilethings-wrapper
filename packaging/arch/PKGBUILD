@@ -5,8 +5,8 @@ pkgdesc="An unofficial wrapper for FacileThings"
 arch=('x86_64')
 url="https://gitlab.com/lukas-mertens/facilethings-linux"
 license=('MIT')
-source=("https://gitlab.com/lukas-mertens/facilethings-linux/-/jobs/588389060/artifacts/raw/build/FacileThings-linux-x64.tar.gz")
-md5sums=('3684ab5b3e3825e39809560b4a9241df')
+source=("https://gitlab.com/lukas-mertens/facilethings-linux/-/jobs/604648512/artifacts/raw/build/FacileThings-linux-x64.tar.gz")
+md5sums=('428f97ad7f6ea5c7ebaa8bc5167b7c42')
 
 package() {
 	      # copy binary files
