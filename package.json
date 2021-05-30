@@ -5,9 +5,9 @@
   "main": " ",
   "scripts": {
     "build": "npm run build:linux && npm run build:windows && npm run build:mac",
-    "build:linux": "npx nativefier https://app.facilethings.com/engage --arch x64 --tray --name FacileThings --icon icon.png --platform linux build",
-    "build:windows": "npx nativefier https://app.facilethings.com/engage --arch x64 --tray --name FacileThings --icon icon.png --platform windows build",
-    "build:mac": "npx nativefier https://app.facilethings.com/engage --arch x64 --tray --name FacileThings --icon icon.png --platform osx build",
+    "build:linux": "npx nativefier https://app.facilethings.com/engage --arch x64 --tray --name FacileThings --icon icon.png --platform linux --inject userscripts.js build",
+    "build:windows": "npx nativefier https://app.facilethings.com/engage --arch x64 --tray --name FacileThings --icon icon.png --platform windows --inject userscripts.js build",
+    "build:mac": "npx nativefier https://app.facilethings.com/engage --arch x64 --tray --name FacileThings --icon icon.png --platform osx --inject userscripts.js build",
     "clean": "rm -rf build"
   },
   "repository": {
