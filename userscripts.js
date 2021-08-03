@@ -18,14 +18,14 @@
 	if (typeof(input) !== "string") {
 		return 0;
 	}
-	if (input.includes("5m"))
-		return 5;
-	if (input.includes("15m"))
-		return 15;
-	if (input.includes("30m"))
-		return 30;
 	if (input.includes("45m"))
 		return 45;
+	if (input.includes("15m"))
+		return 15;
+	if (input.includes("5m"))
+		return 5;
+	if (input.includes("30m"))
+		return 30;
 	if (input.includes("1h"))
 		return 60;
 	if (input.includes("2h"))
