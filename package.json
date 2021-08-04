@@ -1,6 +1,6 @@
 {
-  "name": "facilethings-linux",
-  "version": "1.0.0",
+  "name": "facilethings-wrapper",
+  "version": "1.3.0",
   "description": "An unofficial FacileThings electron wrapper",
   "main": " ",
   "scripts": {
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/lukas-mertens/facilethings-linux.git"
+    "url": "git+ssh://git@gitlab.com/lukas-mertens/facilethings-wrapper.git"
   },
   "keywords": [
     "electron"
@@ -20,9 +20,9 @@
   "author": "Lukas Mertens",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/lukas-mertens/facilethings-linux/issues"
+    "url": "https://gitlab.com/lukas-mertens/facilethings-wrapper/issues"
   },
-  "homepage": "https://gitlab.com/lukas-mertens/facilethings-linux#readme",
+  "homepage": "https://gitlab.com/lukas-mertens/facilethings-wrapper#readme",
   "dependencies": {
     "nativefier": "^8.0.7"
   }
