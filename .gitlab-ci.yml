@@ -1,12 +1,37 @@
-build:
+build:linux:
   image: node:latest
   stage: build
   script:
     - npm install
-    - npm run build
+    - npm run build:linux
     - tar -zcvf build/FacileThings-linux-x64.tar.gz build/FacileThings-linux-x64
+  artifacts:
+    paths:
+      - build/*.tar.gz
+
+build:windows:
+  image: node:latest
+  stage: build
+  script:
+    - npm install
+    - npm run build:windows
     - tar -zcvf build/FacileThings-win32-x64.tar.gz build/FacileThings-win32-x64
+  artifacts:
+    paths:
+      - build/*.tar.gz
+  tags:
+    - shared-windows
+
+build:mac:
+  image: node:latest
+  stage: build
+  allow_failure: true
+  script:
+    - npm install
+    - npm run build:mac
     - tar -zcvf build/FacileThings-darwin-x64.tar.gz build/FacileThings-darwin-x64
   artifacts:
     paths:
       - build/*.tar.gz
+  tags:
+    - shared-macos-amd64
