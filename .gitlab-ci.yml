@@ -34,4 +34,4 @@ build:mac:
     paths:
       - build/*.tar.gz
   tags:
-    - shared-macos-amd64
+    - macos
