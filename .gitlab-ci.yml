@@ -23,7 +23,7 @@ build:windows:
     - shared-windows
 
 build:mac:
-  image: node:latest
+  image: macos-12-xcode-13
   stage: build
   allow_failure: true
   script:
@@ -34,4 +34,4 @@ build:mac:
     paths:
       - build/*.tar.gz
   tags:
-    - macos
+    - shared-macos-amd64

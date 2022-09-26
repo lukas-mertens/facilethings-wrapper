@@ -24,6 +24,6 @@
   },
   "homepage": "https://gitlab.com/lukas-mertens/facilethings-wrapper#readme",
   "dependencies": {
-    "nativefier": "^47.2.0"
+    "nativefier": "^50.0.0"
   }
 }
