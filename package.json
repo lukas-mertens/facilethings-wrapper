@@ -5,9 +5,10 @@
   "main": " ",
   "scripts": {
     "build": "npm run build:linux && npm run build:windows npm run build:mac",
-    "build:linux": "npx nativefier https://app.facilethings.com/engage build --arch x64 --tray --name FacileThings --icon icon.png --platform linux --inject userscripts.js",
-    "build:windows": "npx nativefier https://app.facilethings.com/engage build --arch x64 --tray --name FacileThings --icon icon.png --platform windows --inject userscripts.js",
-    "build:mac": "npx nativefier https://app.facilethings.com/engage build --arch x64 --tray --name FacileThings --icon icon.png --platform osx --inject userscripts.js",
+    "build:extensions": "npx webpack",
+    "build:linux": "npm run build:extensions && npx nativefier https://app.facilethings.com/engage build --arch x64 --tray --name FacileThings --icon icon.png --platform linux --inject build/extensions/extensions.js",
+    "build:windows": "npm run build:extensions && npx nativefier https://app.facilethings.com/engage build --arch x64 --tray --name FacileThings --icon icon.png --platform windows --inject build/extensions/extensions.js",
+    "build:mac": "npm run build:extensions && npx nativefier https://app.facilethings.com/engage build --arch x64 --tray --name FacileThings --icon icon.png --platform osx --inject build/extensions/extensions.js",
     "clean": "rm -rf build"
   },
   "repository": {
@@ -24,6 +25,15 @@
   },
   "homepage": "https://gitlab.com/lukas-mertens/facilethings-wrapper#readme",
   "dependencies": {
+    "@types/jquery": "^3.5.14",
+    "@types/mousetrap": "^1.6.9",
+    "mousetrap": "^1.6.5",
     "nativefier": "^50.0.0"
+  },
+  "devDependencies": {
+    "ts-loader": "^9.4.1",
+    "typescript": "^4.8.4",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
   }
 }
