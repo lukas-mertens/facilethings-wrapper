@@ -81,5 +81,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           VERSION=${GITHUB_REF#refs/tags/}
-          hub release create -m "Release $VERSION" -a build/*.tar.gz $VERSION
+          hub release create -m "Release $VERSION" -a FacileThings-darwin-x64/*.tar.gz -a FacileThings-linux-x64/*.tar.gz -a FacileThings-win32-x64/*.tar.gz $VERSION
 
