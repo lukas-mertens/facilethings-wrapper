@@ -11,11 +11,11 @@ jQuery(() => {
             return 5;
         if (input.includes("30m"))
             return 30;
-        if (input.includes("1h"))
+        if (input.includes("1.0h"))
             return 60;
-        if (input.includes("2h"))
+        if (input.includes("2.0h"))
             return 120;
-        if (input.includes("4h"))
+        if (input.includes("4.0h"))
             return 240;
         return 0;
     }
