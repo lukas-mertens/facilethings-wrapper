@@ -38,7 +38,6 @@ jobs:
         npm run build:windows
     - name: Create artifact
       run: |
-        mkdir -p build
         tar -zcvf build/FacileThings-win32-x64.tar.gz build/FacileThings-win32-x64
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
