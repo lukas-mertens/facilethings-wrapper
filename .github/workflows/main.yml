@@ -1,0 +1,70 @@
+name: Build
+on: [push, pull_request]
+
+jobs:
+  build_linux:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+    - name: Install dependencies and build
+      run: |
+        npm install
+        npm run build:linux
+    - name: Create artifact
+      run: |
+        mkdir -p build
+        tar -zcvf build/FacileThings-linux-x64.tar.gz build/FacileThings-linux-x64
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: FacileThings-linux-x64
+        path: build/*.tar.gz
+
+  build_windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+    - name: Install dependencies and build
+      run: |
+        npm install
+        npm run build:windows
+    - name: Create artifact
+      run: |
+        mkdir -p build
+        tar -zcvf build/FacileThings-win32-x64.tar.gz build/FacileThings-win32-x64
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: FacileThings-win32-x64
+        path: build/*.tar.gz
+
+  build_mac:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+    - name: Install dependencies and build
+      run: |
+        npm install
+        npm run build:mac
+    - name: Create artifact
+      run: |
+        mkdir -p build
+        tar -zcvf build/FacileThings-darwin-x64.tar.gz build/FacileThings-darwin-x64
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: FacileThings-darwin-x64
+        path: build/*.tar.gz
+
