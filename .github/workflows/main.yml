@@ -66,4 +66,20 @@ jobs:
       with:
         name: FacileThings-darwin-x64
         path: build/*.tar.gz
+  release:
+    needs: [build_linux, build_windows, build_mac]
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v2
+      - name: Install hub
+        run: |
+          curl -sSLf https://github.com/github/hub/releases/download/v2.14.2/hub-linux-amd64-2.14.2.tgz | sudo tar -C /usr/local -xvz --wildcards '*/bin/*' && sudo mv /usr/local/hub-linux-amd64-2.14.2/bin/hub /usr/local/bin
+      - name: Create GitHub release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/}
+          hub release create -m "Release $VERSION" -a build/*.tar.gz $VERSION
 
