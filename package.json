@@ -1,6 +1,6 @@
 {
   "name": "facilethings-wrapper",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "An unofficial FacileThings electron wrapper",
   "main": " ",
   "scripts": {
